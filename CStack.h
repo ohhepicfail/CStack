@@ -1,7 +1,6 @@
 //
 // Created by epicfail on 26.02.16.
 //
-
 #ifndef CSTACK_CSTACK_H
 #define CSTACK_CSTACK_H
 
