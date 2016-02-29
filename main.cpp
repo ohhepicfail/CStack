@@ -1,8 +1,13 @@
 #include <stdio.h>
 #include "CStack.h"
+#include "CFuncMonitor.h"
+
+
+#define $       CFuncMonitor monitor (__FILE__, __LINE__, __PRETTY_FUNCTION__);
 
 int main ()
 {
+    $
     CStack cs;
     printf ("%lu\n", cs.size ());
     try

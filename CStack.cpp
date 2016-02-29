@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <typeinfo>
 #include "CStack.h"
+#include "CFuncMonitor.h"
 
 
 #define ASSERT		if ( ! (this->ok()))                                              		\
@@ -20,16 +21,19 @@
                         abort ();                                                           \
                     }
 
+#define $       CFuncMonitor monitor (__FILE__, __LINE__, __PRETTY_FUNCTION__);
+
 static size_t init_size = 2;
 
 CStack::CStack ():
         data_	(new int[init_size]),
         size_	(init_size),
         cur_	(0)
-{}
+{$}
 
 CStack::~CStack ()
 {
+    $
     delete[] data_;
     data_ = NULL;
     size_ = 0xBADF00D;
@@ -38,18 +42,21 @@ CStack::~CStack ()
 
 size_t CStack::size ()
 {
+    $
     ASSERT;
     return size_;
 }
 
 bool CStack::ok ()
 {
+    $
     return this && this->data_ && cur_ <= size_;
 }
 
 //throw 0 if errors
 size_t CStack::resize_()
 {
+    $
     ASSERT;
 
     size_ *= 2;
@@ -79,6 +86,7 @@ size_t CStack::resize_()
 // throw 0 if errors
 bool CStack::push_back (int elem)
 {
+    $
     ASSERT;
 
     if (cur_ == size_)
@@ -94,6 +102,7 @@ bool CStack::push_back (int elem)
 //throw 0 if stack is empty
 int CStack::pop_back ()
 {
+    $
     ASSERT;
 
     if (empty ())
@@ -107,6 +116,7 @@ int CStack::pop_back ()
 
 bool CStack::empty ()
 {
+    $
     ASSERT;
     return ! (bool) cur_;
 }

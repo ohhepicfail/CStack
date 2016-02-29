@@ -1,0 +1,35 @@
+entry /main.cpp 10 int main()
+    entry /CStack.cpp 32 CStack::CStack()
+    exit
+    entry /CStack.cpp 45 size_t CStack::size()
+        entry /CStack.cpp 52 bool CStack::ok()
+        exit
+    exit
+    entry /CStack.cpp 89 bool CStack::push_back(int)
+        entry /CStack.cpp 52 bool CStack::ok()
+        exit
+        entry /CStack.cpp 52 bool CStack::ok()
+        exit
+    exit
+    entry /CStack.cpp 105 int CStack::pop_back()
+        entry /CStack.cpp 52 bool CStack::ok()
+        exit
+        entry /CStack.cpp 119 bool CStack::empty()
+            entry /CStack.cpp 52 bool CStack::ok()
+            exit
+        exit
+        entry /CStack.cpp 52 bool CStack::ok()
+        exit
+    exit
+    entry /CStack.cpp 105 int CStack::pop_back()
+        entry /CStack.cpp 52 bool CStack::ok()
+        exit
+        entry /CStack.cpp 119 bool CStack::empty()
+            entry /CStack.cpp 52 bool CStack::ok()
+            exit
+        exit
+    exit
+    entry /CStack.cpp 36 CStack::~CStack()
+    exit
+exit
+END!
